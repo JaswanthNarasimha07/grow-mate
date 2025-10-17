@@ -1,0 +1,3 @@
+export function addDays(date,days){const d=new Date(date);d.setDate(d.getDate()+days);return d}
+export function diffFuture(target){const now=new Date();const ms=target-now;const s=Math.max(0,Math.floor(ms/1000));const d=Math.floor(s/86400);const h=Math.floor((s%86400)/3600);const m=Math.floor((s%3600)/60);return {d,h,m}}
+export function fmtDue(lastWatered,freq){const next=addDays(lastWatered,freq);const {d,h,m}=diffFuture(next);return {label:`Due in ${d}d ${h}h ${m}m`,next}}
